@@ -1,0 +1,28 @@
+{
+  "name": "mypro",
+  "version": "0.0.1",
+  "description": "my first app",
+  "main": "app.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "keywords": [
+    "angularjs"
+  ],
+  "author": "subhadip",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.6.0",
+    "angular-route": "1.6.0",
+    "lodash": "^4.17.2"
+  },
+  "devDependencies": {
+    "del": "2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-cli": "1.2.2",
+    "gulp-concat": "2.6.1",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-browserify": "0.5.1"
+  }
+}

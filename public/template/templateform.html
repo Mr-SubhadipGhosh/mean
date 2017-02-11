@@ -1,0 +1,27 @@
+<table ng-controller="addctrl as vm">
+    <tr>
+    <td colspan="2"><label for="">Id</label>
+        <input type="text" ng-model="vm.idField"></td>
+    </tr>
+    <tr>        
+        <td colspan="2">
+            <long-label label="Name is not just name but your full name as in marksheet." info="vm.info">               
+                <input ng-model="vm.nameField" />
+            </long-label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+        <label for="">Address</label>
+        <input type="text" ng-model="vm.addrField" /></td>
+    </tr>
+     <tr>
+        <td colspan="2">
+        <label for="">pin</label>
+        <input type="text" my-model ng-model="vm.pinField" /></td>
+    </tr>
+    <tr>
+        <td><button ng-click="vm.resetIt()">Reset</button></td>
+        <td><button ng-click="vm.saveIt()">Save</button></td>
+    </tr>
+</table>
