@@ -1,13 +1,11 @@
 <table ng-controller="listctrl as vm">
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Address</th>
+        <th>Task</th>
+        <th>Status</th>
     </tr>
-    <tr ng-repeat="item in vm.items">
-        <td>{{item.id | convert: 'id'}}</td>
-        <td>{{item.name | uppercase}}</td>
-        <td>{{item.addr}}</td>
-        <td><button ng-click="vm.editIt(item.id)">Edit</button></td>
+    <tr ng-repeat="item in vm.data">
+        <td>{{item.task | uppercase}}</td>
+        <td>{{item.status }}</td>
+        <td><button ng-click="vm.editIt(item._id)">Edit</button></td>
     </tr>
 </table>

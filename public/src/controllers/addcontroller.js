@@ -1,48 +1,31 @@
-module.exports =  function($scope ,$location,emp, newfact, serv, fact, $routeParams){    
+module.exports = function (serv, $routeParams) {
     var vm = this;
-    vm.info="Name";
-    console.log(newfact.items);
-    var _itemid = $routeParams.ID; 
-    console.log($routeParams.Name);
-    //console.log('controller', emp.test );
-   // emp.reSetLang('german');
-
-    vm.items= fact.items;
-    vm.val = 0;
-vm.pinField ="dfd";
-
-if(_itemid){
-     var item = vm.items.filter(function(val){
-            return val.id === _itemid;
-        });  
-        
+    vm.info = "Task";
+    vm.serv = serv;
+    vm.data=[];
+    vm._itemid = $routeParams.ID;
+    
+    if (vm._itemid) {
+        var item = vm.serv.data.filter(function (val) {
+            return val._id === vm._itemid;
+        });
         console.log(item);
-        if(item.length>0){
-            vm.idField = item[0].id;
-            vm.nameField = item[0].name;
-            vm.addrField = item[0].addr;
+
+        if (item.length > 0) {
+            vm.task = item[0].task;
+            vm.status = item[0].status;
         }
     }
-
-    serv.getData();
-    var pro = serv.getDataPromis();
-    pro.then(function(val){
-        //console.log('success',val);
-    },function(err){
-        //console.log('fail',err);
-    });
-    vm.saveIt = function(){
-        console.log(vm.pinField);
-        fact.saveIt(vm);
+    
+    vm.saveIt = function () {  
+        if(vm._itemid){
+            serv.putDataPromis({task:vm.task, status:vm.status},vm._itemid);
+        }
+        else
+            serv.postDataPromis({task:vm.task, status:vm.status});
         vm.resetIt();
-        vm.val = vm.val + 1;
     };
-    vm.resetIt = function(){
-        vm.idField = '';
-        vm.nameField = '';
-        vm.addrField = '';
+    vm.resetIt = function () {
+        vm.task = '';
     };
-    $scope.$watch('vm.val', function(newval,oldval){
-        console.log(oldval,newval);
-    });
 };

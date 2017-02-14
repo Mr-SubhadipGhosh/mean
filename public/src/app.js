@@ -21,8 +21,7 @@ function conf(empProvider){
 }
 myapp.config(routerConf);
 
-myapp.controller('addctrl',addctrl);
-myapp.controller('listctrl',listctrl);
+
 myapp.directive('longLabel',longLabel);
 myapp.directive('infoLabel',infoLabel);
 myapp.directive('myModel',ngmoddirective);
@@ -31,3 +30,5 @@ myapp.factory('newfact',fact2);
 myapp.filter('convert',convert);
 myapp.provider('emp',emp);
 myapp.service('serv',serv);
+myapp.controller('addctrl',addctrl);
+myapp.controller('listctrl',listctrl);

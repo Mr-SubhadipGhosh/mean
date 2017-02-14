@@ -2,14 +2,18 @@ module.exports =  function($scope ,$location,emp, serv, fact){
     var vm = this;
     vm.items= fact.items;
     vm.val = 0;
-    var pro = serv.getDataPromis();
-    pro.then(function(val){
-        //console.log('success',val);
-    },function(err){
-        //console.log('fail',err);
-    });   
+    vm.serv= serv;
+    var pom = vm.serv.getDataPromis();
+    pom.then(function (val) {
+        console.log('Success: ' , val);
+        vm.data = val;
+        vm.serv.data = val;
+    }, function (reason) {
+        console.log('Failed: ' , val);
+    });
+    
     vm.editIt = function(id){
-        $location.path('/edit/'+id+'/test');
-       
+        console.log(id);
+        $location.path('/edit/'+id);       
     };
 };
